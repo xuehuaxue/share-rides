@@ -1,2 +1,2 @@
-# share-rides
-allowed user to register, create or join group trip to share expense.
+still in progress.
+ride share applications allow user to register, create or join group trip to share expense. Just enter your departure address and destination address, the app will search trips that have similar routes, and then you can join any of there is space avaliable!
