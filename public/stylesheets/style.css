@@ -2,6 +2,10 @@ body {
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+h1{
+    letter-spacing: 1px;
+}
+
 .main{
     width: 75%;
     margin: 0 auto;

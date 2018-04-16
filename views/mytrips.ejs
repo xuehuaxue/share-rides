@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>check my trips</title>
+    <link rel='stylesheet' href='/stylesheets/style_my_trip.css'/>
+</head>
+<header>
+    <% include ./partials/header %>
+</header>
+<body>
+
+<div class="container">
+    <h1>All My Trips</h1>
+    <button type="button" class="btn btn-success" data-target="#myModal_new_trip" data-toggle="modal">New Trip</button>
+    <h2>My Hosts</h2>
+
+    <% for (var i = 0; i < my_trips.length; i++) { %>
+    <div class="col-sm-4">
+        <label>Start:</label><%= my_trips[i].start %><br>
+        <label>End:</label><%= my_trips[i].end %><br>
+        <label>Date:</label><%= my_trips[i].date %><br>
+        <label>Expense:</label>$<%= my_trips[i].expense %><br>
+        <label>Member:</label><%= my_trips[i].member %><br>
+        <label>Space Avaliable / Total Space:</label><%= (my_trips[i].space_avaliable - my_trips[i].member.length) %>
+        / <%= my_trips[i].space_avaliable %><br>
+        <button type="button" class="btn btn-warning" data-target="#myModal_edit_trip<%= i %>" data-toggle="modal">
+            Edit
+        </button>
+        <!--not finish yet-->
+        <form method="get" action="#" style="display: inline-block;">
+            <input name="_id" value="<%= my_trips[i]._id %>" style="display: none">
+            <input type="submit" class="btn btn-danger" onclick="window.confirm('are you sure');" value="Delete">
+        </form>
+        <!--edit trip Modal-->
+        <div class="modal fade" id="myModal_edit_trip<%= i %>" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Edit Trips</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/index/edit_trips" method="POST">
+                            Departure:<input type="text" name="start" value="<%= my_trips[i].start %>" required="true"/><br>
+                            Destination:<input type="text" name="end" value="<%= my_trips[i].end %>"
+                                               required="true"/><br>
+                            Date:<input type="text" name="date" value="<%= my_trips[i].date %>" required="true"/><br>
+                            Expense:<input type="number" step="0.01" name="expense" value="<%= my_trips[i].expense %>"
+                                           required="true"/><br>
+                            Total Space:<input type="number" name="total_space"
+                                               value="<%= my_trips[i].space_avaliable %>" required="true"/><br>
+                            Note:<input type="text" name="note" value="<%= my_trips[i].note %>"/><br>
+                            <input type="submit" value="Submit"/>
+                            <!--used to store id-->
+                            <input name="_id" value="<%= my_trips[i]._id %>" style="display: none">
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% } %>
+</div>
+</body>
+</html>
