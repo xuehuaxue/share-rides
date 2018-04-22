@@ -12,7 +12,7 @@ passport.deserializeUser(User.deserializeUser());
 /* GET home page. */
 router.get('/', function (req, res, next) {
     // User.remove(function() {}); //clear all data, used as a helper
-    res.render('index', {title: 'Express'});
+    res.render('index', {my_trips: null});
 });
 
 router.post('/register', function (req, res, next) {

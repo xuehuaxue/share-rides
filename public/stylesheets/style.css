@@ -1,22 +1,126 @@
 body {
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    min-height: 105vh;
 }
 
-h1{
+h1 {
     letter-spacing: 1px;
 }
 
-.main{
+.main {
     width: 75%;
     margin: 0 auto;
     text-align: center;
 }
+
 #map {
     width: 75%;
     height: 30vh;
     margin: 0 auto;
 }
 
-#form-button{
+#form-button {
     margin: 10px 0;
+}
+
+#map2 {
+    margin-left: 100px;
+    width: 45%;
+    height: 30vh;
+    display: inline-block;
+    background: blue;
+}
+
+label {
+    width: 100px;
+    text-align: right;
+    margin: 1%;
+}
+
+#text-area-note {
+    height: 15px;
+    vertical-align: top;
+}
+
+.modal-body li {
+    display: inline-block;
+    list-style: none;
+    margin: 1% 5%;
+}
+
+.new_trip_label {
+    margin: 3% 0;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+#login_li{
+    all: unset;
+    margin: 5px 0;
+    display: block;
+}
+
+/*part for my trip*/
+.container {
+
+}
+
+.panel {
+    box-shadow: 2px 5px 10px #C9C9C9;
+    border-radius: 20px;
+    padding: 10px 10px;
+    max-height: 250px;
+    overflow: hidden;
+    display: block;
+}
+
+.panel:hover {
+    background: lightyellow;
+}
+
+.panel:hover .expense {
+    color: red;
+}
+
+#my_tirp_list {
+    list-style: none;
+}
+
+#my_tirp_label {
+    all: unset;
+    font-weight: bold;
+    font-style: italic;
+    padding-right: 8px;
+}
+
+.panel-body #my_tirp_list {
+    padding-bottom: 2px;
+}
+
+.expense {
+    display: inline-block;
+    float: right;
+    font-size: 30px;
+}
+
+.cost {
+    display: none;
+}
+
+#my_tirp_list_footer{
+    list-style: none;
+    display: inline-block;
+}
+
+.panel-footer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.no_routes_message{
+    font-size: 30px;
 }
