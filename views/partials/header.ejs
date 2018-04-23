@@ -77,7 +77,8 @@
             </div>
             <div class="modal-body">
                 <form action="/login" method="POST">
-                    <li id="login_li">Username:<input type="text" placeholder="choose a username" name="username" required="true"/></li>
+                    <li id="login_li">Username:<input type="text" placeholder="choose a username" name="username"
+                                                      required="true"/></li>
                     <li id="login_li">Password:<input type="password" name="password" required="true"/></li>
                     <li id="login_li"><input type="submit" class="btn btn-warning" value="Log In"/></li>
                 </form>
@@ -107,6 +108,7 @@
                     <label class="new_trip_label">Expense:</label><input type="number" step="0.01" name="expense"
                                                                          required="true"/><br>
                     <label class="new_trip_label">Total Space:</label><input type="number" name="total_space"
+                                                                             placeholder="exclude yourself"
                                                                              required="true"/><br>
                     <label class="new_trip_label">Note:</label><input type="text" name="note"><br>
                     <label class="new_trip_label"><input type="submit" class="btn btn-success" value="Submit"/></label>
@@ -181,7 +183,6 @@
             navbar.classList.remove("sticky");
         }
     }
-
 
 
 </script>

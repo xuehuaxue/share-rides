@@ -1,10 +1,38 @@
 body {
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
     min-height: 105vh;
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
 }
 
-h1 {
-    letter-spacing: 1px;
+h1, h2 {
+    /*thank http://typespiration.com/types/peacock/ for this design*/
+    color: #CEF0D4;
+    font-family: 'Rouge Script', cursive;
+    text-shadow: 1px 1px 2px #082b34;
+}
+
+h1{
+    font-size: 100px;
+    font-weight: normal;
+    line-height: 50px;
+    margin: 50px 0 50px;
+    text-align: center;
+}
+
+h3 {
+    color: #FFFFFF;
+    font-family: 'Carme', sans-serif;
+    line-height: 24px;
+    font-style: italic;
+    text-shadow: -0.1px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.1px black;
+}
+
+#index_h4 {
+    color: #CEF0D4;
+    text-shadow: 1px 1px 2px #082b34;
 }
 
 .main {
@@ -58,7 +86,7 @@ label {
     width: 100%;
 }
 
-#login_li{
+#login_li {
     all: unset;
     margin: 5px 0;
     display: block;
@@ -70,7 +98,7 @@ label {
 }
 
 .panel {
-    box-shadow: 2px 5px 10px #C9C9C9;
+    box-shadow: 2px 3px 2px #555555;
     border-radius: 20px;
     padding: 10px 10px;
     max-height: 250px;
@@ -87,6 +115,10 @@ label {
 }
 
 #my_tirp_list {
+    list-style: none;
+}
+
+#my_tirp_list:hover {
     list-style: none;
 }
 
@@ -111,16 +143,41 @@ label {
     display: none;
 }
 
-#my_tirp_list_footer{
+#my_tirp_list_footer {
     list-style: none;
     display: inline-block;
 }
 
-.panel-footer{
+.panel-footer {
     display: flex;
     justify-content: space-between;
 }
 
-.no_routes_message{
+.no_routes_message {
     font-size: 30px;
+    color: #CEF0D4;
+    text-shadow: 1px 1px 2px #082b34;
+}
+
+#my_join_groups {
+    -webkit-column-count: 2;
+}
+
+#to-link, #from-link {
+    color: #082b34;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 30px;
+    text-shadow: 1px 1px 1px #e5f5ea;
+}
+
+#index_panel{
+    width: 100%;
+    margin: 10px auto;
+}
+
+#search_result{
+    margin:0 auto;
+    width: 100%;
 }

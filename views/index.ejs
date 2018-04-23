@@ -12,9 +12,9 @@
 <body>
 
 <div class="main">
-    <h1>Welcome to Share Rides</h1>
+    <h1>Share Rides</h1>
     <h3>Use this app to share rides with other users. </h3>
-    <h4>Poetentially could save you hundreds per year!</h4>
+    <h4 id="index_h4">Poetentially could save you hundreds per year!</h4>
     <form id="calculate-route" name="calculate-route" action="#" method="get">
 
         <input type="text" id="from" name="from" required="required" placeholder="Departure address" size="30"/>
@@ -77,30 +77,37 @@
                 }
                 else{
                     for (var i = 0; i < data.length; i++) {
+                        if(data[i].member.length < data[i].space_avaliable){
                         $('#search_result').append(
-                            '<div class="panel panel-default" style="width:75%; margin:0 auto; text-align: left;">' +
+                            '<div class="panel panel-default" id="index_panel" style="width:75%; text-align: left;">' +
                                 '<div class="panel-heading">' +
                                         '<a data-toggle="collapse" href="#collapse' + i + '">' +
-                                            '<li id="my_tirp_list" class="expense"><label id="my_tirp_label"><span class="cost">Expense:</span></label>$'+ data[i].expense +'<font size="4">&nbsp each</font></li>'+
+                                            '<li id="my_tirp_list" class="expense"><label id="my_tirp_label"><span class="cost">Expense:</span></label>$'+ (data[i].expense/100*100).toFixed(2) +'<font size="4">&nbsp each</font></li>'+
                                             '<li id="my_tirp_list"><label id="my_tirp_label">Start:</label>'+data[i].start+'</li>' +
                                             '<li id="my_tirp_list"><label id="my_tirp_label">End:</label>'+data[i].end+'</li>' +
                                         '</a>' +
                                 '</div>' +
                                     '<div class="panel-body">'+
-                                    '<li id="my_tirp_list"><label id="my_tirp_label">Date:</label>'+data[i].date+'</li>'+
-                                    '<li id="my_tirp_list"><label id="my_tirp_label">Member:</label>'+data[i].member+'</li>'+
-                                    '<li id="my_tirp_list"><label id="my_tirp_label">Space:</label>'+(data[i].space_avaliable-data[i].member.length)+'</li>'+
+                                    '<li id="my_tirp_list"><label id="my_tirp_label">Date:</label>'+ data[i].date.toLocaleString().split('T')[0] +'</li>'+
+                                    '<li id="my_tirp_list"><label id="my_tirp_label">Member:</label><a href="#">'+data[i].member+'</a></li>'+
+                                    '<li id="my_tirp_list"><label id="my_tirp_label">Space Left:</label>'+(data[i].space_avaliable-data[i].member.length)+'</li>'+
                                     '<li id="my_tirp_list"><label id="my_tirp_label">Note:</label>'+data[i].note+'</li>'+
+                                    '<form method="post" action="/index/join_trip">'+
+                                        '<input type="text" name="trip_id" value=' + data[i]._id + ' style="display:none;" readonly />' +
+                                        '<input type="text" name="member" value=' + JSON.stringify(data[i].member) + ' style="display:none;" readonly />' +
+                                        '<input type="submit" value="Join" onclick="return confirm(\'Are you sure?\')" class="btn btn-warning" />'+
+                                    '</form>'+
                                 '</div>' +
                                 '<div id="collapse' + i + '" class="panel-collapse collapse">' +
                                     '<div class="panel-footer">' +
-                                        '<li id="my_tirp_list_footer"><label id="my_tirp_label">Host:</label>'+data[i].host+'</li>'+
+                                        '<li id="my_tirp_list_footer"><label id="my_tirp_label">Host:</label><a href="#">'+data[i].host+'</a></li>'+
                                         '<li id="my_tirp_list_footer"><label id="my_tirp_label">Host Phone:</label>'+data[i].host_phone+'</li>'+
-                                        '<li id="my_tirp_list_footer"><label id="my_tirp_label">Host Email:</label>'+data[i].host_email+'</li>'+
+                                        '<li id="my_tirp_list_footer"><label id="my_tirp_label">Host Email:</label><a href="#">'+data[i].host_email+'</a></li>'+
                                     '</div>' +
                                 '</div>' +
                             '</div>'
                         );
+                    }
                     }
                 }
             })

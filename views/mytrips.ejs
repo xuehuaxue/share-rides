@@ -10,27 +10,35 @@
 
 
 <div class="container" style="max-width: 55%; display: block;">
+
     <div class="main-box">
         <button type="button" class="btn btn-success" data-target="#myModal_new_trip" data-toggle="modal">New Trip
         </button>
         <h2>My Hosts</h2>
     </div>
-    <div class="main-box" style="max-width: 100%; max-height: 100vh; overflow: scroll;">
+
+    <div class="main-box"
+         style="max-width: 100%; max-height: 70vh;  margin-top: 20px; overflow: scroll; border-top: 2px solid #082b34;">
+
         <% for (var i = 0; i < my_trips.length; i++) { %>
         <div class="panel panel-default">
             <div class="panel-heading">
                 <li id="my_tirp_list" class="expense"><label id="my_tirp_label"><span
-                                class="cost">Expense:</span></label>$<%= my_trips[i].expense %> <font size="4">each</font></li>
+                                class="cost">Expense:</span></label>$<%= ((my_trips[i].expense / 100) * 100).toFixed(2) %>
+                    <font size="4">each</font></li>
                 <li id="my_tirp_list"><label id="my_tirp_label">Start:</label><%= my_trips[i].start %></li>
                 <li id="my_tirp_list"><label id="my_tirp_label">End:</label><%= my_trips[i].end %></li>
             </div>
             <div class="panel-body">
-                <li id="my_tirp_list"><label id="my_tirp_label">Date:</label><%= my_trips[i].date %></li>
-                <li id="my_tirp_list"><label id="my_tirp_label">Member:</label><%= my_trips[i].member %></li>
+                <li id="my_tirp_list"><label
+                            id="my_tirp_label">Date:</label><%= my_trips[i].date.toLocaleString().split(' ')[0] %></li>
+                <li id="my_tirp_list"><label id="my_tirp_label">Member:</label><a href="#"><%= my_trips[i].member %></a>
+                </li>
                 <li id="my_tirp_list"><label id="my_tirp_label">Space Avaliable / Total
                         Space:</label><%= (my_trips[i].space_avaliable - my_trips[i].member.length) %>
                     / <%= my_trips[i].space_avaliable %></li>
-                <li id="my_tirp_list" style="margin-bottom: 5px;"><label id="my_tirp_label">Note:</label><%= my_trips[i].note.slice(0, 480) %></li>
+                <li id="my_tirp_list" style="margin-bottom: 5px;"><label
+                            id="my_tirp_label">Note:</label><%= my_trips[i].note %></li>
                 <button type="button" class="btn btn-warning" data-target="#myModal_edit_trip<%= i %>"
                         data-toggle="modal">
                     Edit
@@ -83,6 +91,51 @@
 
         <% } %>
     </div>
+
+    <div class="main-box">
+        <h2>My Joins</h2>
+    </div>
+    <div class="main-box"
+         style="max-width: 100%; overflow: scroll; margin-top: 20px; max-height: 70vh; min-height: 10vh; border-top: 2px solid #082b34;">
+        <% for (var i = 0; i < my_joins.length; i++) { %>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <li id="my_tirp_list" class="expense"><label id="my_tirp_label"><span
+                                class="cost">Expense:</span></label>$<%= ((my_joins[i].expense / 100) * 100).toFixed(2) %>
+                    <font size="4">each</font></li>
+                <li id="my_tirp_list"><label id="my_tirp_label">Start:</label><%= my_joins[i].start %></li>
+                <li id="my_tirp_list"><label id="my_tirp_label">End:</label><%= my_joins[i].end %></li>
+            </div>
+            <div class="panel-body" id="my_join_groups">
+                <li id="my_tirp_list"><label
+                            id="my_tirp_label">Date:</label><%= my_joins[i].date.toLocaleString().split(' ')[0] %></li>
+                <li id="my_tirp_list"><label id="my_tirp_label">Member:</label><a hre="#"><%= my_joins[i].member %></a>
+                </li>
+                <li id="my_tirp_list"><label id="my_tirp_label">Space Avaliable / Total
+                        Space:</label><%= (my_joins[i].space_avaliable - my_joins[i].member.length) %>
+                    / <%= my_joins[i].space_avaliable %></li>
+                <li id="my_tirp_list"><label id="my_tirp_label">Host:</label><a href="#"><%= my_joins[i].host %></a>
+                </li>
+                <li id="my_tirp_list"><label id="my_tirp_label">Host Phone:</label><%= my_joins[i].host_phone %></li>
+                <li id="my_tirp_list"><label id="my_tirp_label">Host Email:</label><%= my_joins[i].host_email %></li>
+
+                <li id="my_tirp_list" style="margin-bottom: 5px;"><label
+                            id="my_tirp_label">Note:</label><%= my_joins[i].note %></li>
+
+                <input name="_id" value="<%= my_joins[i]._id %>" style="display: none">
+                <!--use post method to invoke delete method-->
+                <form id="haha" method="post" action="/index/leave_trip/<%= my_joins[i]._id %> %>"
+                      style="display: inline-block;">
+                    <input type="text" name="member"
+                           value=<%= JSON.stringify(my_joins[i].member) %> style="display:none;"/>
+                    <input type="submit" id="del-btn" class="btn btn-danger" onclick="return confirm('Are you sure?')"
+                           value="Leave"/>
+                </form>
+            </div>
+        </div>
+        <% } %>
+    </div>
+
 </div>
 <script>
     function initMap() {

@@ -11,9 +11,15 @@ const Trip = new Schema({
     date: {type: Date, required: true},
     expense: {type: Number, required: true},
     space_avaliable: {type: Number, required: true},
-    note: {type: String},
-    member: {type: Array}
+    note: {type: String, trim: true, maxlength: 100},
+    member: {type: Array},
+    start_cords: {type: Object, required: true},  // format in [long, lat]
+    end_cords: {type: Object, required: true}
 });
 
+// note must be less than 100 characters!
+Trip.path('note').validate(function (v) {
+    return v.length < 100;
+});
 
 module.exports = mongoose.model('Trip', Trip);
