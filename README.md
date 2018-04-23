@@ -2,7 +2,7 @@
 
 Here is my personal project: share rides, an app that allows registered users to share cars. Once users registered, they can either create new trips, or join an existing group trip. Either way they can share total expense with other people, which potentially could save them hundreds per year. More than that, less car fuel means better environment!
 
-Build with Express.js, Bootstrap, jQuery and MongoDB. The app follows MVC structure and it is my practice of web development. Using this app, users can share ride, make friends and potentially save hundreds! Even further, less car means less fuel usage, and better environment!
+Build with Express.js, Bootstrap, jQuery and MongoDB. The app follows MVC structure and it is my practice of web development.
 
 see [my wix blog](https://chenyphg.wixsite.com/website/single-post/2016/08/22/Shake-up-your-life-how-to-change-your-own-perspective)for detail snashopts and walkthrough.
 
