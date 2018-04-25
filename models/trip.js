@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+// trip model includes host's userid, host's username, host's email and phone,
+// start and end address, data, space, every member's username, and other important information.
 const Trip = new Schema({
     user_id: {type: String, required: true},
     host: {type: String, required: true},

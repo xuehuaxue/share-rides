@@ -44,6 +44,7 @@
             event.preventDefault();
             var addressId = this.id.substring(0, this.id.indexOf("-"));
 
+            // this will gets user's current location and put it to the input box
             navigator.geolocation.getCurrentPosition(function (position) {
                     var geocoder = new google.maps.Geocoder();
                     geocoder.geocode({
@@ -66,18 +67,18 @@
         });
 
         $("#calculate-route").submit(function (event) {
-            event.preventDefault();
-            calculateRoute($("#from").val(), $("#to").val());
-            $.post('/index/process_data', {from: $("#from").val(), to: $("#to").val()}, function (data) {
+            event.preventDefault();  // nothing should be send to the backend, jquery will take care of that
+            calculateRoute($("#from").val(), $("#to").val());  // get start and end addresses and calc the best route
+            $.post('/index/process_data', {from: $("#from").val(), to: $("#to").val()}, function (data) {  // ivoke the post method
 //                alert(data.length)
 //                $('#search_result').text(JSON.stringify(data));
                 $('#search_result').empty();
-                if(data.length < 1){
+                if(data.length < 1){  // if no route is found, show the message to users
                     $('#search_result').append('<span class="no_routes_message">No similar routes are found! Lets add some!</span>');
                 }
                 else{
-                    for (var i = 0; i < data.length; i++) {
-                        if(data[i].member.length < data[i].space_avaliable){
+                    for (var i = 0; i < data.length; i++) {  // if there is data, which will be return in an array of json format
+                        if(data[i].member.length < data[i].space_avaliable){  // we should create a div (including button) for each data
                         $('#search_result').append(
                             '<div class="panel panel-default" id="index_panel" style="width:75%; text-align: left;">' +
                                 '<div class="panel-heading">' +

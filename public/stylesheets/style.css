@@ -1,3 +1,6 @@
+/* since this style sheet is used in header, and header is presented for every page 
+/* I choose to cram everything into this stylesheet. Since I use bootstrap mostly,
+/* most methods are came from bootstrap directly. */
 body {
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
     min-height: 105vh;
