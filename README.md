@@ -13,7 +13,7 @@ Build with Express.js, Bootstrap, jQuery and MongoDB. The app follows MVC struct
 
 4) If users want to join an trip instead of creating one, they can go to the search page, type in the start and end addresses, and the app will search through the system to see any close/similar routes. If there are trips with similar routes, users can join them if there is space available. Users can also view host's information including username, phone number and email contact.
 
-see [my wix blog](https://chenyphg.wixsite.com/website/single-post/2016/08/22/Shake-up-your-life-how-to-change-your-own-perspective)for detail snashopts and walkthrough.
+see [my wix blog](https://chenyphg.wixsite.com/website/single-post/2016/08/22/Shake-up-your-life-how-to-change-your-own-perspective)for detail screenshots and walkthrough.
 
 ![snapshot](https://static.wixstatic.com/media/754948_ed9be2587c374ebfa54f1cc5c9006140~mv2.jpg/v1/fill/w_930,h_479,al_c,q_85,usm_0.66_1.00_0.01/754948_ed9be2587c374ebfa54f1cc5c9006140~mv2.webp)
 
